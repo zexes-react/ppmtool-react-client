@@ -4,7 +4,7 @@ import ProjectItem from "./Project/ProjectItem";
 class Dashboard extends Component {
     render() {
         return (
-            <div>
+            <div className={"alert alert-warning"}>
                 <h1>Welcome to the Dashboard</h1>
                 <ProjectItem />
             </div>
