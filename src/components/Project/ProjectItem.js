@@ -5,7 +5,7 @@ import Aux from '../../hoc/Auxilliary';
 class ProjectItem extends Component {
     render() {
         return (
-            <div className="container">
+            <Aux className="container">
                 <div className="card card-body bg-light mb-3">
                     <div className="row">
                         <div className="col-2">
@@ -36,7 +36,7 @@ class ProjectItem extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Aux>
 
         );
     }
