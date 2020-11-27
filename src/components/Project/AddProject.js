@@ -37,6 +37,8 @@ class AddProject extends Component {
 
     render() {
         const {errors} = this.state;
+        const errorStyle = "form-control form-control-lg is-invalid";
+        const validStyle = "form-control form-control-lg";
 
         return (
             <div className="register">
@@ -47,14 +49,14 @@ class AddProject extends Component {
                             <hr/>
                             <form onSubmit={this.onSubmitHandler}>
                                 <div className="form-group">
-                                    <input type="text" className={errors.projectName ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
+                                    <input type="text" className={errors.projectName ? errorStyle: validStyle}
                                            placeholder="Project Name" name={"projectName"}
                                            value={this.state.projectName}
                                             onChange={this.onChangeHandler}/>
                                     <div className={errors.projectName ? "invalid-feedback": null}>{errors.projectName}</div>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className={errors.projectIdentifier ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
+                                    <input type="text" className={errors.projectIdentifier ? errorStyle: validStyle}
                                            placeholder="Unique Project ID" name="projectIdentifier"
                                            value={this.state.projectIdentifier}
                                            onChange={this.onChangeHandler}/>
@@ -62,7 +64,7 @@ class AddProject extends Component {
 
                                 </div>
                                 <div className="form-group">
-                                    <textarea className={errors.projectName ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
+                                    <textarea className={errors.projectName ? errorStyle: validStyle}
                                               placeholder="Project Description" name="description"
                                               value={this.state.description}
                                               onChange={this.onChangeHandler}/>
@@ -70,7 +72,7 @@ class AddProject extends Component {
                                 </div>
                                 <h6>Start Date</h6>
                                 <div className="form-group">
-                                    <input type="date" className={errors.startDate ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
+                                    <input type="date" className={errors.startDate ? errorStyle: validStyle}
                                            name="startDate"
                                            value={this.state.startDate}
                                            onChange={this.onChangeHandler}/>
@@ -78,7 +80,8 @@ class AddProject extends Component {
                                 </div>
                                 <h6>Estimated End Date</h6>
                                 <div className="form-group">
-                                    <input type="date" className={errors.endDate ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
+                                    <input type="date" className={errors.endDate ? errorStyle: validStyle}
+                                           name="endDate"
                                            value={this.state.endDate}
                                            onChange={this.onChangeHandler}/>
                                     <div className={errors.endDate ? "invalid-feedback": null}>{errors.endDate}</div>
