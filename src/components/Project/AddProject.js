@@ -47,38 +47,41 @@ class AddProject extends Component {
                             <hr/>
                             <form onSubmit={this.onSubmitHandler}>
                                 <div className="form-group">
-                                    <input type="text" className="form-control form-control-lg "
+                                    <input type="text" className={errors.projectName ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
                                            placeholder="Project Name" name={"projectName"}
                                            value={this.state.projectName}
                                             onChange={this.onChangeHandler}/>
-                                    <p>{errors.projectName}</p>
+                                    <div className={errors.projectName ? "invalid-feedback": null}>{errors.projectName}</div>
                                 </div>
                                 <div className="form-group">
-                                    <input type="text" className="form-control form-control-lg"
+                                    <input type="text" className={errors.projectIdentifier ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
                                            placeholder="Unique Project ID" name="projectIdentifier"
                                            value={this.state.projectIdentifier}
                                            onChange={this.onChangeHandler}/>
-                                    <p>{errors.projectIdentifier}</p>
+                                    <div className={errors.projectIdentifier ? "invalid-feedback": null}>{errors.projectIdentifier}</div>
 
                                 </div>
                                 <div className="form-group">
-                                    <textarea className="form-control form-control-lg"
+                                    <textarea className={errors.projectName ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
                                               placeholder="Project Description" name="description"
                                               value={this.state.description}
                                               onChange={this.onChangeHandler}/>
-                                    <p>{errors.description}</p>
+                                    <div className={errors.description ? "invalid-feedback": null}>{errors.description}</div>
                                 </div>
                                 <h6>Start Date</h6>
                                 <div className="form-group">
-                                    <input type="date" className="form-control form-control-lg" name="startDate"
+                                    <input type="date" className={errors.startDate ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
+                                           name="startDate"
                                            value={this.state.startDate}
                                            onChange={this.onChangeHandler}/>
+                                    <div className={errors.startDate ? "invalid-feedback": null}>{errors.startDate}</div>
                                 </div>
                                 <h6>Estimated End Date</h6>
                                 <div className="form-group">
-                                    <input type="date" className="form-control form-control-lg" name="endDate"
+                                    <input type="date" className={errors.endDate ? "form-control form-control-lg is-invalid": "form-control form-control-lg"}
                                            value={this.state.endDate}
                                            onChange={this.onChangeHandler}/>
+                                    <div className={errors.endDate ? "invalid-feedback": null}>{errors.endDate}</div>
                                 </div>
 
                                 <input type="submit" className="btn btn-primary btn-block mt-4"/>
