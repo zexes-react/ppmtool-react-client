@@ -9,8 +9,18 @@ class AddProject extends Component {
         projectIdentifier: "",
         description: "",
         startDate: "",
-        endDate: ""
+        endDate: "",
+        errors: {}
     }
+
+    //life cycle hooks
+    //componentWillReceiveProps deprecated
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.errors  !== this.props.errors){
+            this.setState({errors: this.props.errors});
+        }
+    }
+
 
     //alternative LONG METHOD: -> pick each field name and do a setState, hence each field will have its own changeHandler
     onChangeHandler = (event) => {
@@ -26,6 +36,8 @@ class AddProject extends Component {
     }
 
     render() {
+        const {errors} = this.state;
+
         return (
             <div className="register">
                 <div className="container">
@@ -39,18 +51,22 @@ class AddProject extends Component {
                                            placeholder="Project Name" name={"projectName"}
                                            value={this.state.projectName}
                                             onChange={this.onChangeHandler}/>
+                                    <p>{errors.projectName}</p>
                                 </div>
                                 <div className="form-group">
                                     <input type="text" className="form-control form-control-lg"
                                            placeholder="Unique Project ID" name="projectIdentifier"
                                            value={this.state.projectIdentifier}
                                            onChange={this.onChangeHandler}/>
+                                    <p>{errors.projectIdentifier}</p>
+
                                 </div>
                                 <div className="form-group">
                                     <textarea className="form-control form-control-lg"
                                               placeholder="Project Description" name="description"
                                               value={this.state.description}
                                               onChange={this.onChangeHandler}/>
+                                    <p>{errors.description}</p>
                                 </div>
                                 <h6>Start Date</h6>
                                 <div className="form-group">
@@ -76,7 +92,12 @@ class AddProject extends Component {
 }
 
 AddProject.propTypes = {
-    createProject: PropTypes.func.isRequired
+    createProject: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
 }
 
-export default connect(null, {createProject}) (AddProject);
+const mapStateToProps = state => ({
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, {createProject}) (AddProject);
