@@ -41,7 +41,7 @@ class AddProject extends Component {
         const validStyle = "form-control form-control-lg";
 
         return (
-            <div className="register">
+            <div className="project">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
@@ -87,7 +87,8 @@ class AddProject extends Component {
                                     <div className={errors.endDate ? "invalid-feedback": null}>{errors.endDate}</div>
                                 </div>
 
-                                <input type="submit" className="btn btn-primary btn-block mt-4"/>
+                                <input type="submit"
+                                       className="btn btn-primary btn-block mt-4"/>
                             </form>
                         </div>
                     </div>
