@@ -64,7 +64,7 @@ class AddProject extends Component {
 
                                 </div>
                                 <div className="form-group">
-                                    <textarea className={errors.projectName ? errorStyle: validStyle}
+                                    <textarea className={errors.description ? errorStyle: validStyle}
                                               placeholder="Project Description" name="description"
                                               value={this.state.description}
                                               onChange={this.onChangeHandler}/>

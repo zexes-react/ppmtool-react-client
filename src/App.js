@@ -9,6 +9,7 @@ import AddProject from "./components/Project/AddProject";
 
 import { Provider } from "react-redux";
 import store from "./store";
+import UpdateProject from "./components/Project/UpdateProject";
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
           <Router>
               <div className="App">
                   <Header />
-                  <Route path="/addProject" exact component={AddProject}/>
                   <Route path="/dashboard" exact component={Dashboard}/>
+                  <Route path="/addProject" exact component={AddProject}/>
+                  <Route path="/updateProject/:id" exact component={UpdateProject}/>
               </div>
           </Router>
       </Provider>
