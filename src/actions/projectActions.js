@@ -6,7 +6,11 @@ export const createProject = (project, history) => async dispatch => {
     try{
         const res = await axios.post
         ("http://localhost:8083/api/project", project);
-        history.push("/dashboard")
+        history.push("/dashboard");
+        dispatch({
+            type: GET_ERRORS,
+            payload: {} //clear errors on good data
+        })
     }catch (error) {
         dispatch({
             type: GET_ERRORS,
@@ -19,7 +23,11 @@ export const updateProject = (project, history) => async dispatch => {
     try{
         const res = await axios.put
         ("http://localhost:8083/api/project", project);
-        history.push("/dashboard")
+        history.push("/dashboard");
+        dispatch({
+            type: GET_ERRORS,
+            payload: {} //clear errors on good data
+        })
     }catch (error) {
         dispatch({
             type: GET_ERRORS,
